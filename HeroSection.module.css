@@ -1,0 +1,254 @@
+/* ==================== HERO SECTION STYLES ==================== */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Hero Background with Parallax */
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroBgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+}
+
+/* Hero Overlay */
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 51, 153, 0.6) 0%,
+    rgba(76, 20, 140, 0.5) 100%
+  );
+  z-index: 2;
+}
+
+/* Hero Content */
+.heroContent {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroTextWrapper {
+  max-width: 900px;
+  padding: 40px;
+}
+
+/* Hero Title */
+.heroTitle {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  letter-spacing: -2px;
+}
+
+.heroTitleLine {
+  display: block;
+  overflow: hidden;
+}
+
+.heroTitleWord {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Hero Subtitle */
+.heroSubtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 300;
+  margin-bottom: 40px;
+  opacity: 0.9;
+  line-height: 1.8;
+}
+
+.heroSubtitleText {
+  display: block;
+  will-change: transform, opacity;
+}
+
+/* CTA Buttons */
+.heroCta {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.btn {
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  will-change: transform, background-color;
+}
+
+.btnPrimary {
+  background-color: #fff;
+  color: #663399;
+}
+
+.btnPrimary:hover {
+  background-color: transparent;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: #fff;
+}
+
+.btnSecondary:hover {
+  background-color: #fff;
+  color: #663399;
+  transform: translateY(-3px);
+}
+
+/* Scroll Indicator */
+.heroScrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: bounce 2s infinite;
+  z-index: 5;
+}
+
+.scrollText {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.scrollIcon {
+  width: 24px;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.scrollWheel {
+  width: 3px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 2px;
+  animation: scrollWheel 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@keyframes scrollWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+@media (max-width: 768px) {
+  .hero {
+    height: 80vh;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .heroCta {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 100vh;
+  }
+
+  .heroTextWrapper {
+    padding: 30px 20px;
+  }
+
+  .heroTitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .heroSubtitle {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .heroCta {
+    margin-bottom: 40px;
+  }
+
+  .heroScrollIndicator {
+    bottom: 20px;
+  }
+}
